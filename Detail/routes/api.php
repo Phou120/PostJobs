@@ -83,4 +83,7 @@ Route::group([
     Route::delete('delete-experience/{id}', [ExperienceController::class, 'deleteExperience'])->name('delete.experience');
     Route::get('list-experiences', [ExperienceController::class, 'listExperiences']);
 
+    /** Paovang */
+    Route::get('list-paovang');
+
 });
