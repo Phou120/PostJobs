@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\PostJobController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\JobSeekerController;
@@ -83,7 +84,7 @@ Route::group([
     Route::delete('delete-experience/{id}', [ExperienceController::class, 'deleteExperience'])->name('delete.experience');
     Route::get('list-experiences', [ExperienceController::class, 'listExperiences']);
 
-    /** Paovang */
-    Route::get('list-paovang');
-
+    
+    /** Post Jobs */
+    Route::post('post-jobs', [PostJobController::class])->name('post.jobs');
 });
