@@ -85,6 +85,7 @@ Route::group([
     
     /** Post Jobs */
     Route::post('post-jobs', [PostJobController::class, 'postJobs'])->name('post.jobs');
+    Route::get('list-post-jobs', [PostJobController::class, 'listPostJobs'])->name('list.post.jobs');
 });
 
 

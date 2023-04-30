@@ -13,10 +13,6 @@ class Company extends Model
     {
         return [
             'id' =>$this->id,
-             // 'business_type_id' =>$this->business_type_id,
-            // 'business_type'=>[
-            //     'name' =>$this->business_type->name,
-            // ],
             'name' =>$this->name,
             'phone' =>$this->phone,
             'email_contract' =>$this->email_contract,
@@ -26,7 +22,7 @@ class Company extends Model
             'longitude' =>$this->longitude,
             'bank_name' =>$this->bank_name,
             'bank_account_number' =>$this->bank_account_number,
-            'business_type_id'=>[
+            'business_type'=>[
                 'name' => $this->business_type->name,
             ],
             'created_at' => $this->created_at,
@@ -34,8 +30,9 @@ class Company extends Model
 
         ];
     }
+    
 
-    public function come()
+    public function business_type()
     {
         return $this->belongsTo(BusinessType::class);
     }
