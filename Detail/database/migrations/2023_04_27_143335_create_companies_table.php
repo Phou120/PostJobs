@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email_contract');
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->string('address');
             $table->double('latitude')->default(0);
             $table->double('longitude')->default(0);
-            $table->string('bank_name');
-            $table->string('bank_account_number');
+            $table->string('bank_name')->nullable();
+            $table->string('bank_account_name')->nullable();
+            $table->string('bank_account_number')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('business_type_id')->references('id')->on('business_types')->onUpdate('cascade')->onDelete('cascade');

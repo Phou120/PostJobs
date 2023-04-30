@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('company_positions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('postion_id');
+            $table->unsignedBigInteger('position_id');
             $table->unsignedBigInteger('company_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('postion_id')->references('id')->on('positions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('position_id')->references('id')->on('positions')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
         });
     }
