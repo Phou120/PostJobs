@@ -13,7 +13,6 @@ class PositionService
     public function addPosition($request)
     {
         $addPosition = new Position();
-        $addPosition->company_id = $request['company_id'];
         $addPosition->name = $request['name'];
         $addPosition->save();
 
@@ -25,7 +24,6 @@ class PositionService
     public function editPosition($request)
     {
         $editPosition = Position::find($request['id']);
-        $editPosition->company_id = $request['company_id'];
         $editPosition->name = $request['name'];
         $editPosition->save();
 
@@ -47,20 +45,7 @@ class PositionService
     public function listPositions()
     {
         $listPosition = Position::select(
-            'positions.*',
-            'com.name as com_name',
-            'com.phone as com_phone',
-            'com.email_contract as com_email_contract',
-            'com.latitude as com_latitude',
-            'com.longitude as com_longitude',
-            'com.bank_name as com_bank_name',
-            'com.bank_account_number as com_bank_account_number',
-            'com.logo as com_logo',
-
-        )->join(
-
-            'companies as com',
-            'com.id', '=', 'positions.company_id',
+            'positions.*'
 
         )->orderBy('id', 'desc')->get();
 

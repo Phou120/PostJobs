@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('post_jobs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('position_id');
-            $table->integer('experience');
+            $table->unsignedBigInteger('company_position_id');
+            $table->string('experience')->nullable();
             $table->string('education_level');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->double('basic_salary')->default(0);
             $table->integer('qty');
-            $table->enum('status', ['Open', 'Closed', 'Filled'])->default('Open');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->enum('status', ['open', 'close'])->default('close');
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('position_id')->references('id')->on('positions')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('company_position_id')->references('id')->on('company_positions')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -18,10 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group([
-
     'middleware' => 'api',
     'prefix' => 'auth'
-
 ], function ($router) {
 
     Route::post('login', [AuthController::class, 'login']);
@@ -86,5 +84,7 @@ Route::group([
 
     
     /** Post Jobs */
-    Route::post('post-jobs', [PostJobController::class])->name('post.jobs');
+    Route::post('post-jobs', [PostJobController::class, 'postJobs'])->name('post.jobs');
 });
+
+

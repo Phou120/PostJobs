@@ -57,12 +57,7 @@ class PositionRequest extends FormRequest
                     'max:60',
                     Rule::unique('positions', 'name')
                     ->ignore($this->id)
-                ],
-                'company_id'=>[
-                    'required',
-                    'numeric',
-                    Rule::exists('companies', 'id')
-                ],
+                ]
             ];
         }
 
@@ -74,12 +69,7 @@ class PositionRequest extends FormRequest
                     'min:2',
                     'max:60',
                     Rule::unique('positions', 'name')
-                ],
-                'company_id'=>[
-                    'required',
-                    'numeric',
-                    Rule::exists('companies', 'id')
-                ],
+                ]
             ];
         }
 
